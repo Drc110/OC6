@@ -1,0 +1,17 @@
+- name: main
+  hosts: all
+  become: true
+  tasks:
+  - name: nginx
+    apt:
+      name: nginx
+      state: latest
+  - name: php
+    apt:
+      name: php
+      state: latest
+  - name: ngix boot
+    service:
+      name: nginx
+      enabled: yes
+      state: started
